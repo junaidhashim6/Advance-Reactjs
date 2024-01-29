@@ -25,14 +25,20 @@ class App extends Component {
     return (
       <>
         <div className="App">
+          <input
+            type="search"
+            placeholder="Search Monster"
+            onChange={(e) => {
+              console.log(e.target.value);
+            }}
+          />
           {this.state.monsters.map((monster) => {
-            return(
+            return (
               <div key={monster.id}>
-              <h1 >{monster.name}</h1>
-              <h2 >{monster.email}</h2>
+                <h1>{monster.name}</h1>
+                <h2>{monster.email}</h2>
               </div>
-            ) 
-            
+            );
           })}
         </div>
       </>

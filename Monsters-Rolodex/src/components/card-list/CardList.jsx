@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Component } from "react";
 import "../card-list/card-list.css";
+import Card from "../card/Card";
 class CardList extends Component {
   render() {
     const { monsters } = this.props;
@@ -10,14 +11,7 @@ class CardList extends Component {
         {monsters.map((monster) => {
           const { email, name, id } = monster;
           return (
-            <div className="card-container" key={id}>
-              <img
-                src={`https://robohash.org/${id}?set=set2`}
-                alt={`monster ${name}`}
-              />
-              <h2>{name}</h2>
-              <p>{email}</p>
-            </div>
+            <Card key={id} name={name} email={email} id={id}/>
           );
         })}
       </div>

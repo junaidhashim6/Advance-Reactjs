@@ -3,11 +3,19 @@ import { Component } from "react";
 class CardList extends Component {
   render() {
     const { monsters} = this.props;
+
     return (
-      <div>
-       {monsters.map(monster=>(
-        <h1 key={monster.id}>{monster.name}</h1>
-       ))}
+      <div className="card-list">
+       {monsters.map((monster)=>{
+        const {email, name , id} = monster;
+        return(
+            <div className="card-container" key={id}>
+            <img src={`https://robohash.org/${id}?set=set2`} alt={`monster ${name}`} />
+            <h2>{name}</h2>
+            <p>{email}</p>
+        </div>
+        )
+       })}
       </div>
     );
   }

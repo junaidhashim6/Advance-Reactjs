@@ -22,23 +22,26 @@ class App extends Component {
         );
       });
   }
+  onSearch = (e) => {
+    const searchField = e.target.value.toLowerCase();
+    
+    this.setState(() => {
+      return { searchField };
+    });
+  }
   render() {
-    const filterdMonsters = this.state.monsters.filter((monster) => {
-      return monster.name.toLowerCase().includes(this.state.searchField);
+    const {monsters, searchField} = this.state;
+    const {onSearch} = this;
+    const filterdMonsters = monsters.filter((monster) => {
+      return monster.name.toLowerCase().includes(searchField);
     });
     return (
-      <>
+      
         <div className="App">
           <input
             type="search"
             placeholder="Search Monster"
-            onChange={(e) => {
-              const searchField = e.target.value.toLowerCase();
-              
-              this.setState(() => {
-                return { searchField };
-              });
-            }}
+            onChange={onSearch}
           />
 
           {filterdMonsters.map((monster) => {
@@ -50,7 +53,6 @@ class App extends Component {
             );
           })}
         </div>
-      </>
     );
   }
 }

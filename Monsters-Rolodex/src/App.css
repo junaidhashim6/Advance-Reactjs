@@ -13,3 +13,7 @@ body {
   );
   text-align: center;
 }
+.app-title{
+  font-size: 75px;
+  color: rgb(112, 214, 180);
+}

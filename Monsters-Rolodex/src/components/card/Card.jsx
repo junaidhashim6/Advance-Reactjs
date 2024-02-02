@@ -3,7 +3,7 @@ import { Component } from 'react'
 import '../card/card.css'
 export default class Card extends Component {
   render() {
-    const {email, id, name} = this.props;
+    const {email, id, name} = this.props.monster;
     return (
         <div className="card-container" key={id}>
         <img
